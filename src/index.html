@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="Description" content="Character counter - Free, open, no ads and respects your privacy">
+    <meta name="theme-color" content="#eeeeee"/>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="mvp.css">
+    <!--<link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons-192_apple.png">-->
+    <title>Character counter - Free, open, no ads and respects your privacy</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>Character counter requires Javascript</strong>
+    </noscript>
+    <main>
+      <section>
+        <header>
+          <h1>Character counter</h1>
+          <details>
+            <summary>What is this?</summary>
+            <p>Character counter can be used to count characters in text
+            </p>
+          </details>
+        </header>
+      </section>
+
+      <section>
+        <form>          
+          <label id="textLabel" for="textInput" title="Text input">Input:</label>
+          <textarea id="textInput" rows="5" placeholder="Write or paste some text here..." disabled></textarea>
+        </form>
+      </section>
+
+      <section>
+        <article>
+            <p id="visibleCount">Visible count: 0</p>
+            <p id="utf8Count">UTF-8 count: 0</p>
+            <p id="utf16Count">UTF-16 count: 0</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p>
+        <small>
+            Character counter - <i id="buildinfo"></i> - <a href="about.html">About</a>
+        </small>
+      </p>
+    </footer>
+  </body>
+  <script type="module" src="count.js"></script>
+  <script type="module">
+      import {CharacterCounter} from "./count.js";
+      const textInputArea = document.getElementById("textInput");
+      textInputArea.disabled = false;
+      const visibleCountElement = document.getElementById("visibleCount");
+      const utf8CountElement = document.getElementById("utf8Count");
+      const utf16CountElement = document.getElementById("utf16Count");
+
+      textInputArea.addEventListener('input', onTextInput);
+      function onTextInput(input) {
+        const text = input.target.value;
+        visibleCountElement.innerText = `Visible count: ${CharacterCounter.CountVisibleCharacters(text)}`;
+        utf8CountElement.innerText = `UTF-8 count: ${CharacterCounter.CountUTF_8Characters(text)}`;
+        utf16CountElement.innerText = `UTF-16 count: ${CharacterCounter.CountUTF_8Characters(text)}`;
+      }
+  </script>
+</html>
