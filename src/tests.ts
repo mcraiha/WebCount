@@ -21,3 +21,10 @@ Deno.test("test ⛳", () => {
     assertEquals(1, CharacterCounter.CountUTF_16Characters(testCase), "Count UTF-16 characters");
     assertEquals(3, CharacterCounter.CountUTF_8Characters(testCase), "Count UTF-8 characters");
 });
+
+Deno.test("test 👩‍🦰", () => {
+    const testCase: string = "👩‍🦰";
+    assertEquals(1, CharacterCounter.CountVisibleCharacters(testCase), "Count visible characters");
+    assertEquals(10, CharacterCounter.CountUTF_16Characters(testCase), "Count UTF-16 characters");
+    assertEquals(22, CharacterCounter.CountUTF_8Characters(testCase), "Count UTF-8 characters");
+});🦰
