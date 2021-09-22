@@ -65,9 +65,20 @@
       textInputArea.addEventListener('input', onTextInput);
       function onTextInput(input) {
         const text = input.target.value;
-        visibleCountElement.innerText = `Visible count: ${CharacterCounter.CountVisibleCharacters(text)}`;
+        visibleCountElement.innerText = `Visible count: ${countVisibleCharacters(text)}`;
         utf8CountElement.innerText = `UTF-8 count: ${CharacterCounter.CountUTF_8Characters(text)}`;
-        utf16CountElement.innerText = `UTF-16 count: ${CharacterCounter.CountUTF_8Characters(text)}`;
+        utf16CountElement.innerText = `UTF-16 count: ${CharacterCounter.CountUTF_16Characters(text)}`;
+      }
+
+      function countVisibleCharacters(text) {
+        //return 1;
+        const segmenter = new Intl.Segmenter("en");
+        const segments = segmenter.segment(text);
+        let total = 0;
+        for (let {segment, index, isWordLike} of segments) {
+          total++;
+        }
+        return total;
       }
   </script>
 </html>
