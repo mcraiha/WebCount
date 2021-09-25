@@ -1,0 +1,37 @@
+{
+    "name": "Web count",
+    "short_name": "Web count",
+    "description": "Character counter - Free, open, no ads and respects your privacy",
+    "icons": [
+        {
+          "src": "icons-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "icons-512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        },
+        {
+          "src": "icons-512-maskable.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "maskable"
+        }
+      ],
+    "theme_color": "#bbbbbb",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "orientation": "portrait",
+    "categories": ["count", "characters"],
+    "shortcuts" : [
+      {
+        "name": "Info",
+        "url": "/info.html",
+        "description": "Info about Character counter"
+      }
+    ]
+  }
