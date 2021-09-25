@@ -1,5 +1,11 @@
 
 export class CharacterCounter {
+
+    // These will be overridden during CI/CD
+    public static readonly typescriptVersion: string = "{0}";
+    public static readonly gitShortHash: string = "{1}";
+    public static readonly buildDate: string = "{2}";
+
     static CountVisibleCharacters(input: string) : number {
         return [...input].length;
         //const segmenter = new Intl.Segmenter("en");

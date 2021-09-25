@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="Description" content="Character counter - Free, open, no ads and respects your privacy">
-    <meta name="theme-color" content="#eeeeee"/>
+    <meta name="theme-color" content="#bbbbbb"/>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="mvp.css">
-    <!--<link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="icons-192_apple.png">-->
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons-192_apple.png">
     <title>Character counter - Free, open, no ads and respects your privacy</title>
   </head>
   <body>
@@ -48,7 +48,7 @@
       <hr>
       <p>
         <small>
-            Character counter - <i id="buildinfo"></i> - <a href="about.html">About</a>
+            Character counter - <i id="buildInfo"></i> - <a href="info.html">Info</a>
         </small>
       </p>
     </footer>
@@ -61,6 +61,12 @@
       const visibleCountElement = document.getElementById("visibleCount");
       const utf8CountElement = document.getElementById("utf8Count");
       const utf16CountElement = document.getElementById("utf16Count");
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+
+      fillBuildInfo('buildInfo', CharacterCounter.buildDate, CharacterCounter.gitShortHash);
 
       textInputArea.addEventListener('input', onTextInput);
       function onTextInput(input) {
@@ -79,6 +85,12 @@
           total++;
         }
         return total;
+      }
+
+      function fillBuildInfo(elementName, day, shortHash)
+      {
+          const buildInfoElement = document.getElementById(elementName);
+          buildInfoElement.innerHTML = `<time datetime="${day}">${day}</time> <a href="https://github.com/mcraiha/WebCount/commit/${shortHash}">#${shortHash}</a>`;
       }
   </script>
 </html>
