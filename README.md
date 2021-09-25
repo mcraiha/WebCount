@@ -27,3 +27,11 @@ If you want to serve with deno, install [File server](https://deno.land/manual/e
 file_server .
 ```
 and then open [http://localhost:4507/](http://localhost:4507/)
+
+## Licenses
+
+All code files (*.ts) and HTML files (*.html) are under [Unlicense](https://unlicense.org/)
+
+The CSS file (mvp.css) is under [MIT License](https://github.com/andybrewer/mvp/blob/master/LICENSE).
+
+Icon file is combination of 🖐️ and 📃 emojis that are from [Twitter Emoji](https://github.com/twitter/twemoji) (Twemoji) project. Their license is [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
