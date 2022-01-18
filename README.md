@@ -1,6 +1,9 @@
 # WebCount
 Count characters from text in your browser
 
+## Live
+[https://count.raiha.rocks](https://count.raiha.rocks)
+
 ## Why
 Because I had to show that [Deno](https://deno.land/) rocks!
 
