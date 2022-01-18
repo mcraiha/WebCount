@@ -19,7 +19,7 @@ deno bundle count.ts count.js
 ```
 
 ### Run tests
-In **src** folder
+In **tests** folder
 ```
 deno test tests.ts
 ```
